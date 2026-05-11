@@ -4,8 +4,6 @@ return {
   branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    -- BurntSushi/ripgrep is a native dependency for live_grep and grep_string
-    -- sharkdp/fd is a native dependency for more search features
     'nvim-telescope/telescope-fzy-native.nvim', -- for improving sorting performance
   },
   config = function()
@@ -37,5 +35,7 @@ return {
         },
       },
     }) -- Config goes here
+
+    require('telescope').load_extension('fzy_native')
   end,
 }

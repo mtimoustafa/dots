@@ -9,8 +9,6 @@ kube-logs() { kubectl logs -f $(kubectl get pods -o=name -l app=$1 --no-headers)
 kube-exec() { kubectl exec -it $(kubectl get pods -o=name -l app=$1 --no-headers) $2 } # Execute command on K8s pod
 timer() { (sleep $1 && say -r 140 -v Samantha "It is time") & echo $! > ~/timerps } # Set a timer for X minutes and write PID to file
 alias gs='git status'
-alias gdk-solo-saas='gdk stop rails-web && GITLAB_RAILS_RACK_TIMEOUT_ENABLE_LOGGING=false PUMA_SINGLE_MODE=true GITLAB_SIMULATE_SAAS=1 gdk rails s'
-alias gdk-solo-sm='gdk stop rails-web && GITLAB_RAILS_RACK_TIMEOUT_ENABLE_LOGGING=false PUMA_SINGLE_MODE=true GITLAB_SIMULATE_SAAS=0 gdk rails s'
 
 # Make fzf look up hidden files
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
